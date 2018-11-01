@@ -2,8 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import withTheme from './common/withTheme'
+import { Normalize } from 'styled-normalize'
+import { createGlobalStyle } from 'styled-components'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const GlobalStyle = createGlobalStyle`
+  body {
+    font-family: ${({ theme }) => theme.fonts.Gotham};
+  }
+`
+const Root = () => (
+  <React.Fragment>
+    <Normalize />
+    <GlobalStyle />
+    <App />
+  </React.Fragment>
+)
+
+const RootWithTheme = withTheme(Root)
+
+ReactDOM.render(<RootWithTheme />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
