@@ -3,6 +3,7 @@ export default {
     12, 14, 16, 20, 24, 32, 48, 64
   ],
   colors: {
+    linkColorBlue: '#0070FF',
     blue: '#07c',
     lightgray: '#f6f6ff'
   },
